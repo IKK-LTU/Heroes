@@ -1,0 +1,234 @@
+import React, { Component } from 'react';
+// import logo from './logo.svg';
+import logo from './img/star-wars-logo.png'; // with import
+import './App.css';
+import Heroes from './heroes/heroes';
+
+
+
+class App extends Component {
+
+  // constructor(props) {
+  // super(props) //since we are extending class Table so we have to use super in order to override Component class constructor
+ 
+
+  state = {
+    heroes: [
+      {name:'Luke Skywalker', birth:'19BBY', gender:'M'},
+      {name:'C-3PO', birth:'112BBY', gender:'n/a'},
+      {name:'R2-D2', birth:'33BBY', gender:'n/a'},
+    ]
+  }
+
+  render() {
+    return (
+      <div className="App">
+      
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" /> 
+
+            <Heroes name={this.state.heroes[0].name} birth={this.state.heroes[0].birth} gender={this.state.heroes[0].gender}/>
+            <Heroes name={this.state.heroes[1].name} birth={this.state.heroes[1].birth} gender={this.state.heroes[1].gender}/>
+            <Heroes name={this.state.heroes[2].name} birth={this.state.heroes[2].birth} gender={this.state.heroes[2].gender}/>
+          
+          { /* <Heroes name="Luke Skywalker" birth="19BBY" gender="M">fdgdfgdfg</Heroes>
+          <Heroes name="C-3PO" birth="112BBY" gender="n/a">alioo</Heroes>
+          <Heroes name="R2-D2" birth="33BBY" gender="n/a">dddd</Heroes> */ }
+        </header>
+      </div>
+      // React.createElement('div', {className: 'App'},
+      // React.createElement('header', {className: 'App-header'}, <img src={logo} className="App-logo" alt="logo"  />))
+    );
+  }
+};
+export default App;
+
+
+
+            Heroes
+
+import React from 'react';
+
+const heroes = (props) => {
+    return (
+    <div>
+    <p> I'm a {props.name}, I born in {props.birth} and my gender : {props.gender}</p>
+    <p></p>
+    </div>
+    )
+}
+export default heroes;
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------APP---------------------------
+
+
+import React, { Component } from 'react';
+// import logo from './logo.svg';
+import logo from './img/star-wars-logo.png'; // with import
+import './App.css';
+import Table from './table';
+import Heroes from './heroes/heroes';
+
+
+
+class App extends Component {
+
+  constructor(props) {
+   super(props) //since we are extending class Table so we have to use super in order to override Component class constructor
+ 
+
+  this.state = {
+    heroes: [
+      {name:'Skywalker', birth:'19BBY', gender:'M'},
+      {name:'C-3PO', birth:'112BBY', gender:'n/a'},
+      {name:'R2-D2', birth:'33BBY', gender:'n/a'},
+    ]
+  }
+}
+  renderTableData() {
+    return this.state.heroes.map((heroes, index) => {
+       const { name, birth, gender, } = heroes //destructuring
+       return (
+          <tr key={name}>
+             <td>{name}: { this.state.foo }</td>
+             <td>{birth}</td>
+             <td>{gender}</td>
+             <td>{<button className={'close'} onClick={this.deleteHero.bind(this)} ></button>}</td>
+          </tr>
+       )
+    })
+ }
+ renderTableHeader() {
+  let header = Object.keys(this.state.heroes[0])
+  return header.map((name, index) => {
+     return <th key={index}>{name.toUpperCase()}</th>
+  })
+}
+
+deleteHero() {
+  this.setState({ 'Skywalker':  });
+}
+
+  render() {
+    return (
+    <div className="App">
+      
+        <header className="App-header">
+
+          <img src={logo} className="App-logo" alt="logo" /> 
+
+          <h1 id='title'> Star Wars Heroes</h1>
+
+          <input className="sortinput" type="text" placeholder="Sort Heroes"></input>
+
+          <button className='addHero'>+ Add Hero!</button>
+          
+
+            <table id='heroes'>
+               <tbody>
+               <tr >{this.renderTableHeader()}</tr>
+                {this.renderTableData()}
+                
+               </tbody>
+               
+            </table>
+            
+            
+        </header>
+    </div>
+      
+      );
+    }
+};
+export default App;
+
+
+
+
+
+{/* <Heroes name={this.state.heroes[0].name} birth={this.state.heroes[0].birth} gender={this.state.heroes[0].gender}/>
+            <Heroes name={this.state.heroes[1].name} birth={this.state.heroes[1].birth} gender={this.state.heroes[1].gender}/>
+            <Heroes name={this.state.heroes[2].name} birth={this.state.heroes[2].birth} gender={this.state.heroes[2].gender}/>
+          
+          {  <Heroes name="Luke Skywalker" birth="19BBY" gender="M">fdgdfgdfg</Heroes>
+          <Heroes name="C-3PO" birth="112BBY" gender="n/a">alioo</Heroes>
+          <Heroes name="R2-D2" birth="33BBY" gender="n/a">dddd</Heroes>} */}
+
+// React.createElement('div', {className: 'App'},
+      // React.createElement('header', {className: 'App-header'}, <img src={logo} className="App-logo" alt="logo"  />))
+
+
+
+
+
+
+
+const { filter, heroes } = this.state;
+    return (
+    <div className="App">
+      
+        <header className="App-header">
+
+          <img src={logo} className="App-logo" alt="logo" /> 
+
+          <h1 id='title'> Star Wars Heroes</h1>
+          
+          <button className='addHero' onClick={this.toggleHeroes}>+ Add Hero!</button>
+          <Heroes></Heroes>
+
+          <input  type="Text" style={{margin: '15px',padding: '5px'}} value={filter} onChange={this.handleChange} placeholder="Sort Heroes" />
+
+          <table id='heroes'>
+      <tbody>
+
+        <tr>{this.renderTableHeader()}</tr>
+        <>{this.renderTableData()}</>
+
+         {this.state.showinputs ?
+          <tr>
+          <td>
+          <input
+          type="text"
+          value={this.state.name}
+          onChange={this.onChangeName}
+        />
+        </td>
+        <td>
+        <input
+          type="text"
+          value={this.state.birth}
+          onChange={this.onChangeBirth}
+        />
+        </td>
+        <td>
+        <input
+          type="text"
+          value={this.state.gender}
+          onChange={this.onChangeGender}
+        />
+        </td>
+        <td>
+           <button
+              type="button"
+               onClick={this.onAddItem} >
+               Add
+           </button>
+           </td>
+           </tr> : null }
+     </tbody>   
+  </table>
+</header>
+</div> 
+      );

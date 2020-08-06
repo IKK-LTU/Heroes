@@ -1,0 +1,104 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+
+  height: 20vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #000000;
+  background-image: url("img/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
+  min-width: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#title {
+  padding-top: 20px;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgb(233, 233, 233);
+}
+
+#heroes {
+  text-align: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border: 3px solid #ddd;
+  width: 80%;
+}
+
+#heroes td, #heroes th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+
+#heroes tr:hover {background-color: rgba(102, 99, 99, 0.986);}
+
+#heroes th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.close {
+  font-weight: bold;
+  color: #f1f1f1;
+  
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+.sortinput{
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.addHero {
+  background-color: #4CAF50;
+  padding: 10px 10px 10px 10px;
+  font-size: 20px;
+  border-radius: 15px;
+  margin: 5px 5px;
+  align-items: left;
+
+}
+
+.addHero:hover,
+.addHero:focus {
+  background-color: rgb(39, 48, 29);
+  color: #5e5e5e;
+  cursor: pointer;
+}
