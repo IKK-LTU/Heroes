@@ -1,7 +1,6 @@
 import React, { Component} from 'react';
 import logo from './img/star-wars-logo.png'; // with import
 import './App.css';
-import Table from './table';
 
 class App extends Component {
   
